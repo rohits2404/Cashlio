@@ -5,6 +5,7 @@ import {
   IChartSeriesPoint,
   IPieData,
 } from "./types";
+import { fetchExpense } from "./services/expenseService";
 
 const fetchTransactionsList = (list: ITransactionData[]) => {
     const chartData = list.map((t: ITransactionData) => {
@@ -129,7 +130,7 @@ const getChartOptions = (
 
 const getDashboardValues = async (token: string) => {
     const incomeList = await fetchIncome(token);
-    // const expenseList = await fetchExpense(token);
+    const expenseList = await fetchExpense(token);
 
     let incomeValue = 0;
     let expenseValue = 0;
@@ -138,9 +139,9 @@ const getDashboardValues = async (token: string) => {
         incomeValue += Number(income.amount);
     });
 
-    // expenseList.forEach((expense: ITransactionData) => {
-    //   expenseValue += Number(expense.amount);
-    // });
+    expenseList.forEach((expense: ITransactionData) => {
+      expenseValue += Number(expense.amount);
+    });
 
     const totalBalance = incomeValue - expenseValue;
     const totalTransaction = incomeValue + expenseValue;

@@ -1,8 +1,9 @@
+import { Expense } from '@/components/Expense'
 import React from 'react'
 
 const ExpensePage = () => {
     return (
-        <div>ExpensePage</div>
+        <Expense/>
     )
 }
 
