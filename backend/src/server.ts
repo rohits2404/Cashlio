@@ -6,6 +6,7 @@ import bodyParser from "body-parser";
 import { connectDB } from "./config/db.js";
 import { clerkMiddleware } from "@clerk/express";
 import { clerkWebhookHandler } from "./middlewares/clerk.middleware.js";
+import incomeRouter from "./routes/incomeRoute.js";
 
 connectDB();
 
@@ -24,6 +25,8 @@ const port = process.env.PORT || 5000;
 app.get("/", (req: Request, res: Response) => {
     res.send("Server Is Live!");
 });
+
+app.use("/api/income", incomeRouter);
 
 app.listen(port, () => {
     console.log(`Server Is Running at http://localhost:${port}`);

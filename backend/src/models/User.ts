@@ -1,10 +1,12 @@
-import mongoose, { Schema, Document } from "mongoose";
+import mongoose, { Schema, Document, Types } from "mongoose";
 
 export interface IUser extends Document {
     clerkId: string;
     email: string;
     fullName?: string;
     imageUrl?: string;
+    expenses: Types.ObjectId[];
+    income: Types.ObjectId[];
 }
 
 const UserSchema = new Schema<IUser>(
@@ -13,6 +15,8 @@ const UserSchema = new Schema<IUser>(
         email: { type: String, required: true },
         fullName: String,
         imageUrl: String,
+        expenses: [{ type: mongoose.Schema.Types.ObjectId, ref: "Expense" }],
+        income: [{ type: mongoose.Schema.Types.ObjectId, ref: "Income" }],
     },
     { timestamps: true }
 );
