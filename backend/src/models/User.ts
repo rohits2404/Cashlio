@@ -7,6 +7,8 @@ export interface IUser extends Document {
     imageUrl?: string;
     expenses: Types.ObjectId[];
     income: Types.ObjectId[];
+    createdAt: Date;
+    updatedAt: Date;
 }
 
 const UserSchema = new Schema<IUser>(

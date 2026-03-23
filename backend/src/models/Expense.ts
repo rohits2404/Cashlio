@@ -8,6 +8,8 @@ export interface IExpense extends Document {
     amount: number;
     clerkId: string;
     date: Date;
+    createdAt: Date;
+    updatedAt: Date;
 }
 
 const ExpenseSchema = new Schema<IExpense>(

@@ -117,7 +117,7 @@ export const Income = () => {
                 <div className="border border-gray-300 mt-4 py-3 px-6 rounded-3xl flex-1">
                     <div className="font-medium text-lg">Income Overview</div>
                     <div className="text-sm text-gray-500">
-                        Monitor Your Incove Over Time and Gain Insights About Your Earnings
+                        Monitor Your Income Over Time and Gain Insights About Your Earnings
                     </div>
                     <div className="mt-8">
                         <HighchartsReact highcharts={Highcharts} options={options} />

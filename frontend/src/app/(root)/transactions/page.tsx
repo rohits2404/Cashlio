@@ -1,8 +1,9 @@
+import { Transactions } from '@/components/Transactions'
 import React from 'react'
 
 const TransactionsPage = () => {
     return (
-        <div>TransactionsPage</div>
+        <Transactions/>
     )
 }
 

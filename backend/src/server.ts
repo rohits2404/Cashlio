@@ -8,6 +8,7 @@ import { clerkMiddleware } from "@clerk/express";
 import { clerkWebhookHandler } from "./middlewares/clerk.middleware.js";
 import incomeRouter from "./routes/incomeRoute.js";
 import expenseRouter from "./routes/expenseRoute.js";
+import transactionRouter from "./routes/transactionRoute.js";
 
 connectDB();
 
@@ -29,6 +30,7 @@ app.get("/", (req: Request, res: Response) => {
 
 app.use("/api/income", incomeRouter);
 app.use("/api/expense", expenseRouter);
+app.use("/api/transaction", transactionRouter);
 
 app.listen(port, () => {
     console.log(`Server Is Running at http://localhost:${port}`);
